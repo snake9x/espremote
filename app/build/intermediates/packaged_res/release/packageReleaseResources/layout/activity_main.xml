@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1a1a2e">
+
+    <!-- Status -->
+    <TextView android:id="@+id/tvStatus"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Initializing..." android:textColor="#e0e0e0" android:textSize="12sp"
+        android:background="#16213e" android:padding="8dp" android:fontFamily="monospace"/>
+
+    <!-- Top bar: Reconnect + Lang -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:layout_marginTop="4dp">
+        <Button android:id="@+id/btnConnect"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="38dp"
+            android:text="🔄 Reconnect" android:textSize="12sp"
+            android:backgroundTint="#0f3460" android:layout_marginEnd="4dp"/>
+        <Button android:id="@+id/btnLangSwitch"
+            android:layout_width="wrap_content" android:layout_height="38dp"
+            android:text="🇺🇸 EN" android:textSize="13sp"
+            android:backgroundTint="#533483" android:paddingStart="16dp" android:paddingEnd="16dp"/>
+    </LinearLayout>
+
+    <!-- Layout hint -->
+    <TextView android:id="@+id/tvLayoutHint"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="" android:textColor="#FFB300" android:textSize="11sp"
+        android:background="#2a2000" android:padding="6dp"
+        android:visibility="gone"/>
+
+    <!-- Tab bar -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="44dp"
+        android:orientation="horizontal" android:layout_marginTop="6dp">
+        <TextView android:id="@+id/tabKeyboard"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
+            android:text="⌨ Keyboard" android:gravity="center" android:textColor="#fff"
+            android:textSize="13sp" android:background="#e94560"/>
+        <TextView android:id="@+id/tabTrackpad"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
+            android:text="🖱 Trackpad" android:gravity="center" android:textColor="#fff"
+            android:textSize="13sp" android:background="#333355" android:layout_marginStart="2dp"/>
+        <TextView android:id="@+id/tabHotkeys"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
+            android:text="⚡ Hotkeys" android:gravity="center" android:textColor="#fff"
+            android:textSize="13sp" android:background="#333355" android:layout_marginStart="2dp"/>
+    </LinearLayout>
+
+    <!-- ══════════ PANEL: KEYBOARD ══════════ -->
+    <LinearLayout android:id="@+id/panelKeyboard"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:orientation="vertical" android:padding="8dp">
+
+        <EditText android:id="@+id/etInput"
+            android:layout_width="match_parent" android:layout_height="90dp"
+            android:hint="Type here — sends to PC in real time"
+            android:textColorHint="#888" android:textColor="#fff" android:textSize="15sp"
+            android:background="#0d0d1a" android:padding="10dp" android:gravity="top"
+            android:imeOptions="flagNoEnterAction" android:layout_marginBottom="8dp"/>
+
+        <!-- Esc Tab Backspace Enter -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="4dp">
+            <Button android:id="@+id/btnEsc"       android:layout_width="0dp" android:layout_weight="1" android:layout_height="46dp" android:text="Esc"   android:textSize="12sp" android:backgroundTint="#533483" android:layout_marginEnd="3dp"/>
+            <Button android:id="@+id/btnTab"       android:layout_width="0dp" android:layout_weight="1" android:layout_height="46dp" android:text="Tab"   android:textSize="12sp" android:backgroundTint="#533483" android:layout_marginEnd="3dp"/>
+            <Button android:id="@+id/btnBackspace" android:layout_width="0dp" android:layout_weight="1" android:layout_height="46dp" android:text="⌫"     android:textSize="16sp" android:backgroundTint="#533483" android:layout_marginEnd="3dp"/>
+            <Button android:id="@+id/btnEnter"     android:layout_width="0dp" android:layout_weight="1" android:layout_height="46dp" android:text="Enter"  android:textSize="12sp" android:backgroundTint="#e94560"/>
+        </LinearLayout>
+
+        <!-- Del Home End PgUp PgDn -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="4dp">
+            <Button android:id="@+id/btnDelete"   android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="Del"  android:textSize="11sp" android:backgroundTint="#1a1a3e" android:layout_marginEnd="3dp"/>
+            <Button android:id="@+id/btnHome"     android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="Home" android:textSize="11sp" android:backgroundTint="#1a1a3e" android:layout_marginEnd="3dp"/>
+            <Button android:id="@+id/btnEnd"      android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="End"  android:textSize="11sp" android:backgroundTint="#1a1a3e" android:layout_marginEnd="3dp"/>
+            <Button android:id="@+id/btnPageUp"   android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="PgUp" android:textSize="11sp" android:backgroundTint="#1a1a3e" android:layout_marginEnd="3dp"/>
+            <Button android:id="@+id/btnPageDown" android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="PgDn" android:textSize="11sp" android:backgroundTint="#1a1a3e"/>
+        </LinearLayout>
+
+        <!-- Arrows -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center" android:layout_marginBottom="3dp">
+                <Button android:id="@+id/btnUp" android:layout_width="72dp" android:layout_height="46dp"
+                    android:text="▲" android:textSize="18sp" android:backgroundTint="#0f3460"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center">
+                <Button android:id="@+id/btnLeft"  android:layout_width="72dp" android:layout_height="46dp" android:text="◄" android:textSize="18sp" android:backgroundTint="#0f3460" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnDown"  android:layout_width="72dp" android:layout_height="46dp" android:text="▼" android:textSize="18sp" android:backgroundTint="#0f3460" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnRight" android:layout_width="72dp" android:layout_height="46dp" android:text="►" android:textSize="18sp" android:backgroundTint="#0f3460"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvLog"
+            android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:textColor="#4CAF50" android:textSize="10sp" android:fontFamily="monospace"
+            android:background="#0a0a14" android:padding="6dp" android:gravity="bottom"
+            android:layout_marginTop="6dp"/>
+    </LinearLayout>
+
+    <!-- ══════════ PANEL: TRACKPAD ══════════ -->
+    <LinearLayout android:id="@+id/panelTrackpad"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:orientation="vertical" android:padding="8dp" android:visibility="gone">
+
+        <View android:id="@+id/trackpadView"
+            android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:background="#0d1a2e" android:layout_marginBottom="8dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Speed:" android:textColor="#aaa" android:textSize="12sp" android:layout_marginEnd="6dp"/>
+            <SeekBar android:id="@+id/sbSensitivity"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="6dp">
+            <Button android:id="@+id/btnScrollUp"   android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="⬆ Scroll Up"   android:textSize="12sp" android:backgroundTint="#1a3a1a" android:layout_marginEnd="4dp"/>
+            <Button android:id="@+id/btnScrollDown" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="⬇ Scroll Down" android:textSize="12sp" android:backgroundTint="#1a3a1a"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btnMouseLeft"  android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp" android:text="Left Click"  android:textSize="13sp" android:backgroundTint="#0f3460" android:layout_marginEnd="4dp"/>
+            <Button android:id="@+id/btnMouseRight" android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp" android:text="Right Click" android:textSize="13sp" android:backgroundTint="#3a1a1a"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Tip: tap the pad = left click" android:textColor="#555"
+            android:textSize="11sp" android:gravity="center" android:layout_marginTop="6dp"/>
+    </LinearLayout>
+
+    <!-- ══════════ PANEL: HOTKEYS ══════════ -->
+    <ScrollView android:id="@+id/panelHotkeys"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="8dp">
+
+            <!-- Language switch shortcut -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="🌐  Language" android:textColor="#e94560" android:textSize="13sp"
+                android:layout_marginBottom="4dp"/>
+            <Button android:id="@+id/btnWinSpace"
+                android:layout_width="match_parent" android:layout_height="44dp"
+                android:text="Win+Space — Switch PC Language"
+                android:textSize="12sp" android:backgroundTint="#2a1a4a"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Editing -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="✏️  Editing" android:textColor="#e94560" android:textSize="13sp"
+                android:layout_marginBottom="4dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <Button android:id="@+id/btnCopy"      android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Copy"       android:textSize="12sp" android:backgroundTint="#1e3a5f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnPaste"     android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Paste"      android:textSize="12sp" android:backgroundTint="#1e3a5f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnCut"       android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Cut"        android:textSize="12sp" android:backgroundTint="#1e3a5f"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp">
+                <Button android:id="@+id/btnUndo"      android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Undo"       android:textSize="12sp" android:backgroundTint="#1e3a5f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnRedo"      android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Redo"       android:textSize="12sp" android:backgroundTint="#1e3a5f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnSelectAll" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Sel All"    android:textSize="11sp" android:backgroundTint="#1e3a5f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnFind"      android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Find"       android:textSize="12sp" android:backgroundTint="#1e3a5f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnSave"      android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Save"       android:textSize="12sp" android:backgroundTint="#1e3a5f"/>
+            </LinearLayout>
+
+            <!-- Window -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="🪟  Window" android:textColor="#e94560" android:textSize="13sp"
+                android:layout_marginBottom="4dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <Button android:id="@+id/btnWinD"     android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Win+D\nDesktop"   android:textSize="10sp" android:backgroundTint="#3a2a0f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnAltTab"   android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Alt+Tab\nSwitch"  android:textSize="10sp" android:backgroundTint="#3a2a0f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnAltF4"    android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Alt+F4\nClose"    android:textSize="10sp" android:backgroundTint="#3a2a0f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnWinL"     android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Win+L\nLock"      android:textSize="10sp" android:backgroundTint="#3a2a0f"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp">
+                <Button android:id="@+id/btnWinE"     android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Win+E\nExplorer"  android:textSize="10sp" android:backgroundTint="#3a2a0f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnWinR"     android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Win+R\nRun"       android:textSize="10sp" android:backgroundTint="#3a2a0f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnWinTab"   android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Win+Tab\nTask View" android:textSize="9sp" android:backgroundTint="#3a2a0f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnWinLeft"  android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Win+◄\nSnap"      android:textSize="10sp" android:backgroundTint="#3a2a0f" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnWinRight" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Win+►\nSnap"      android:textSize="10sp" android:backgroundTint="#3a2a0f"/>
+            </LinearLayout>
+
+            <!-- Admin -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="🔧  Admin / System" android:textColor="#e94560" android:textSize="13sp"
+                android:layout_marginBottom="4dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <Button android:id="@+id/btnCtrlAltDel"  android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="Ctrl+Alt\n+Del"       android:textSize="10sp" android:backgroundTint="#5a0a0a" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnTaskMgr"     android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="Task\nManager"         android:textSize="10sp" android:backgroundTint="#5a0a0a" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnWinX"        android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="Win+X\nPower Menu"     android:textSize="10sp" android:backgroundTint="#5a0a0a" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnPrintScreen" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="Print\nScreen"          android:textSize="10sp" android:backgroundTint="#5a0a0a"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp">
+                <Button android:id="@+id/btnTerminal"   android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Terminal\nCtrl+Alt+T"  android:textSize="10sp" android:backgroundTint="#1a3a1a" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnCtrlShiftN" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="Ctrl+Shift\n+N"         android:textSize="10sp" android:backgroundTint="#1a3a1a"/>
+            </LinearLayout>
+
+            <!-- Media -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="🎵  Media" android:textColor="#e94560" android:textSize="13sp"
+                android:layout_marginBottom="4dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="3dp">
+                <Button android:id="@+id/btnMediaPrev" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="⏮" android:textSize="20sp" android:backgroundTint="#1a2a1a" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnMediaPlay" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="⏯" android:textSize="20sp" android:backgroundTint="#1a2a1a" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnMediaNext" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="⏭" android:textSize="20sp" android:backgroundTint="#1a2a1a"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/btnVolDown" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="🔉 Vol-" android:textSize="13sp" android:backgroundTint="#1a2a1a" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnMute"    android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="🔇 Mute" android:textSize="13sp" android:backgroundTint="#1a2a1a" android:layout_marginEnd="3dp"/>
+                <Button android:id="@+id/btnVolUp"   android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp" android:text="🔊 Vol+" android:textSize="13sp" android:backgroundTint="#1a2a1a"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

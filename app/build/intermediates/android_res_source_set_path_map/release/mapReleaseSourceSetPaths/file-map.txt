@@ -1,0 +1,9 @@
+com.snake9x.espremote.app-pngs-0 C:\Users\Ivan\Downloads\ESPRemoteControl\app\build\generated\res\pngs\release
+com.snake9x.espremote.app-resValues-1 C:\Users\Ivan\Downloads\ESPRemoteControl\app\build\generated\res\resValues\release
+com.snake9x.espremote.app-updated_navigation_xml-2 C:\Users\Ivan\Downloads\ESPRemoteControl\app\build\generated\updated_navigation_xml\release
+com.snake9x.espremote.app-packageReleaseResources-3 C:\Users\Ivan\Downloads\ESPRemoteControl\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.snake9x.espremote.app-packageReleaseResources-4 C:\Users\Ivan\Downloads\ESPRemoteControl\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.snake9x.espremote.app-release-5 C:\Users\Ivan\Downloads\ESPRemoteControl\app\build\intermediates\merged_res\release\mergeReleaseResources
+com.snake9x.espremote.app-main-6 C:\Users\Ivan\Downloads\ESPRemoteControl\app\src\main\res
+com.snake9x.espremote.app-release-7 C:\Users\Ivan\Downloads\ESPRemoteControl\app\src\release\res
+gradleHome-0 C:\Users\Ivan\.gradle
